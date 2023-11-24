@@ -1,0 +1,39 @@
+<div>
+    <button type="button" class="btn btn-primary mx-2" (click)="saveClient()"><i class="fas fa-plus"></i> Nuevo</button>
+    <button type="button" class="btn btn-primary mx-2" (click)="exportToCSV()"><i class="fas fa-file-export"></i> Exportar</button>
+</div>
+
+<div class="mt-3 col-lg-3">
+    <input type="text" (keyup)="search($event)" class="form-control" placeholder="Digitá para buscar a un cliente">
+</div><br>
+
+<div class="table-responsive small">
+    <h1 class="h2 text-primary">Clientes <button type="button" class="btn btn-dark btn-circle btn-sm" (click)="logClient()" target="Ver Log"><i class="fas fa-list" title="Ver logs"></i></button>
+    </h1>
+    <table class="table table-bordered table-sm text-center">
+        <thead>
+            <tr>
+                <th scope="col">Shared key</th>
+                <th scope="col">Business ID</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Data Added</th>
+                <th scope="col"><i class="fas fa-pencil"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of clients">
+                <td>{{ item.sharedkey }}</td>
+                <td>{{ item.businessid }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.phone }}</td>
+                <td>{{ item.created_at | date:'yyyy-MM-dd'}}</td>
+                <td>
+                    <button type="button" class="btn btn-link btn-circle btn-sm text-success" (click)="saveClient(item)">
+                      <i class="fas fa-pencil"></i>
+                    </button> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

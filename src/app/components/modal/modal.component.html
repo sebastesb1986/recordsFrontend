@@ -1,0 +1,82 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Datos Cliente</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row" [formGroup]="form">
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+                <label for="businessid" class="col-sm-2 col-form-label">Nombre(s)</label>
+            </div>
+            <div class="col-sm-10">
+                <input formControlName="businessid" id="businessid" type="text" class="form-control"
+                    placeholder="Nombre(s)">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+                <label for="phone" class="col-sm-2 col-form-label">Teléfono</label>
+            </div>
+            <div class="col-sm-10">
+                <input formControlName="phone" id="phone" type="text" class="form-control" placeholder="Teléfono">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+                <label for="email" class="col-sm-2 col-form-label">Correo electrónico</label>
+            </div>
+            <div class="col-sm-10">
+                <input formControlName="email" id="email" type="email" class="form-control"
+                    placeholder="Correo electrónico">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-xs-12 col-12 col-md-5 col-lg-10 form-group mb-3">
+                <div class="col-sm-10">
+                    <label for="start_at" class="col-sm-2 col-form-label">Fecha inicial</label>
+                </div>
+                <div class="form-group mb-3">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary" (click)="dps.toggle()" [attr.aria-expanded]="dps.isOpen"
+                                type="button">
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                        <input formControlName="start_at" id="start_at" type="text" class="form-control"
+                            placeholder="Fecha inicial" #dps="bsDatepicker" bsDatepicker
+                            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', minDate: minDate, adaptivePosition: true }">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-3 row">
+            <div class="col-xs-12 col-12 col-md-5 col-lg-10 form-group mb-3">
+                <div class="col-sm-10">
+                    <label for="end_at" class="col-sm-2 col-form-label">Fecha fin</label>
+                </div>
+                <div class="form-group mb-3">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary" (click)="dpe.toggle()" [attr.aria-expanded]="dpe.isOpen"
+                                type="button">
+                                <i class="fas fa-calendar"></i>
+                            </button>
+                        </div>
+                        <input formControlName="end_at" id="end_at" type="text" class="form-control"
+                            placeholder="Fecha fin" #dpe="bsDatepicker" bsDatepicker
+                            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', minDate: minDate, adaptivePosition: true }" [bsValue]="bsValue">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancelar</button>
+    <button type="button" class="btn btn-dark" (click)="saveClient()">Guardar</button>
+</div>

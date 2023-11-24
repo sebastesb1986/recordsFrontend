@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Historico acciones en clientes</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="table-responsive small">
+        <table class="table table-bordered table-sm  text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Acción</th>
+                    <th scope="col">Nombre cliente</th>
+                    <th scope="col">Fecha acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of logClients">
+                    <td>{{ item.action }}</td>
+                    <td>{{ item.clientName }}</td>
+                    <td>{{ item.action == 'update' ? item.created_at : item.updated_at | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cerrar</button>
+</div>
