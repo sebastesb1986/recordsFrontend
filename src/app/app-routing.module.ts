@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './components/client/client.component';
-import { LogClientComponent } from './components/log-client/log-client.component';
 
 const routes: Routes = [
 
